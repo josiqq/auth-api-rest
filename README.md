@@ -8,8 +8,17 @@ $ npm run build # build the server
 
 ## Routes
 - `/api/v1/users` - get all users - `GET`
-- `/api/v1/users/:id` - get user by id
-- `/api/v1/users/create` - create user
+- `/api/v1/users/:id` - get user by id - `GET`
+- `/api/v1/users/login` - login user - `POST`
+- `/api/v1/users/signup` - signup user - `POST`
+
+Protected routes: (need to be authenticated)
+- `/api/v1/tasks` - get all tasks - `GET`
+- `/api/v1/tasks` - create a new task - `POST`
+- `/api/v1/tasks/:id` - get task by id - `GET`
+- `/api/v1/tasks/:id` - update task by id - `PUT`
+
+Wondering where DELETE is? haha add it yourself :)
 
 ## Environment variables
 - `PORT` - port to run the server on
