@@ -1,17 +1,36 @@
+## Installation
+
+```bash
+$ npm install
+```
+
+## Build 
+```bash
+$ npm run build
+```
+
 ## Usage
 
 ```bash
-    npm install 
-    npm run dev
+$ npm run dev
 ```
 
-# Build 
-``` bash
-    npx tsc
-```
+## Environment variables
+- `SECRET_KEY` - secret key for JWT
+- `PORT` - port to run the server on
+- `DB_HOST` - database host
+- `DB_USER` - database user
+- `DB_PASSWORD` - database password
+- `DB_NAME` - database name
 
 ## Dependencies
 
-* [node-sass](https://github.com/sass/node-sass)
-* [gulp](https://github.com/gulpjs/gulp)
-* [gulp-sass](https://github.com/dlmanning/gulp-sass)
+- [express](https://github.com/expressjs/express)
+- [mysql](https://github.com/mysqljs/mysql)
+- [nodemon](https://github.com/remy/nodemon)
+- [cors](https://github.com/expressjs/cors)
+- [bcrypt](https://github.com/kelektiv/node.bcrypt.js)
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+- [morgan](https://github.com/expressjs/morgan)
+- [dotenv](https://github.com/motdotla/dotenv)
+- [ts-node](https://github.com/TypeStrong/ts-node)
