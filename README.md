@@ -12,20 +12,13 @@ $ npm run build # build the server
 - `/api/v1/users/login` - login user - `POST`
 - `/api/v1/users/signup` - signup user - `POST`
 
-Protected routes: (need to be authenticated)
+### Protected routes: (need to be authenticated)
 - `/api/v1/tasks` - get all tasks - `GET`
 - `/api/v1/tasks` - create a new task - `POST`
 - `/api/v1/tasks/:id` - get task by id - `GET`
 - `/api/v1/tasks/:id` - update task by id - `PUT`
 
 Wondering where DELETE is? haha add it yourself :)
-
-## Environment variables
-- `PORT` - port to run the server on
-- `DB_HOST` - database host
-- `DB_USER` - database user
-- `DB_PASSWORD` - database password
-- `DB_NAME` - database name
 
 ## Configuration of database
 ```js
