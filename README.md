@@ -1,19 +1,22 @@
-## Installation
+## Scripts
 
 ```bash
-$ npm install
+$ npm install # install dependencies
+$ npm run dev # start the server
+$ npm run build # build the server
 ```
 
-## Build 
-```bash
-$ npm run build
-```
+## Routes
+- `/api/v1/users` - get all users - `GET`
+- `/api/v1/users/:id` - get user by id
+- `/api/v1/users/create` - create user
 
-## Usage
-
-```bash
-$ npm run dev
-```
+## Environment variables
+- `PORT` - port to run the server on
+- `DB_HOST` - database host
+- `DB_USER` - database user
+- `DB_PASSWORD` - database password
+- `DB_NAME` - database name
 
 ## Configuration of database
 ```js
