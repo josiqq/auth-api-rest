@@ -31,15 +31,25 @@ export async function createUser(req: Request, res: Response) {
     const hashedPassword = await bycrpt.hash(newUser.password, 10);
     newUser.password = hashedPassword;
 
-    connection.query('INSERT INTO usuarios (email, password) VALUES (?, ?)', [newUser.email, newUser.password], (err, data) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json({
-                message: 'Usuario creado correctamente'
-            });
-        }
-    });
+
+    // verificar que el email no existe
+    const existeEmail = await emailExists(newUser.email);
+    if (existeEmail) {
+        res.status(400).json({
+            msg: 'El email ya existe'
+        })
+    } else {
+        connection.query('INSERT INTO usuarios (email, password) VALUES (?, ?)', [newUser.email, newUser.password], (err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json({
+                    message: 'Usuario creado correctamente'
+                });
+            }
+        });
+    }
+    
 
 }
 
@@ -87,9 +97,25 @@ export const loginUser = (req: Request, res: Response) => {
             }
         }
     })
+}
 
-
-
+async function emailExists(email: string) {
+    return new Promise((resolve, reject) => {
+        connection.query('SELECT * FROM usuarios WHERE email = ' + connection.escape(email), (err, data) => {
+            if (err) {
+                console.log(err)
+                reject(err)
+            } else {
+                if (data.length == 0) {
+                    // No existe el usuario en la base de datos
+                    resolve(false)
+                } else {
+                    // Existe
+                    resolve(true)
+                }
+            }
+        })
+    }) 
 }
 
 
